@@ -1,0 +1,25 @@
+{
+  "name": "grpc-examples",
+  "version": "0.1.0",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.1.0",
+    "@grpc/proto-loader": "^0.5.0",
+    "async": "^1.5.2",
+    "google-protobuf": "^3.0.0",
+    "grpc": "^1.24.11",
+    "grpc_tools_node_protoc_ts": "^5.3.2",
+    "grpc-caller": "^0.14.0",
+    "grpc-tools": "^1.11.2",
+    "lodash": "^4.6.1",
+    "minimist": "^1.2.0"
+  },
+  "scripts": {
+    "nginx": "sudo nginx -c /home/szymon/Pulpit/Szymon_Sumara/sumara_szymon_5_I2_I4/I4/conf/proxy.conf",
+    "build-proto-ts": "grpc_tools_node_protoc  --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts  --ts_out=generated services.proto",
+    "build-proto-js": "grpc_tools_node_protoc  --plugin=protoc-gen-grpc=./node_modules/.bin/grpc_tools_node_protoc_plugin  --js_out=import_style=commonjs,binary:generated --grpc_out=generated services.proto",
+    "build-proto":"mkdir generated & npm run build-proto-js & npm run build-proto-ts"
+  },
+  "devDependencies": {
+    "@types/google-protobuf": "^3.15.6"
+  }
+}
